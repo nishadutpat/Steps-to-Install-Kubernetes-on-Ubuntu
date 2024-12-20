@@ -1,8 +1,8 @@
 (Run on both nodes)  
 
-Sudo apt-get update –y 
+Sudo apt-get update 
 
-sudo apt-get install docker.io –y 
+sudo apt-get install docker.io 
 
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg 
 
@@ -16,13 +16,14 @@ echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 
 sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list 
 
-sudo  
+sudo  apt-get update
 
 sudo apt-get install -y kubectl kubeadm kubelet 
 
   
 
-On Master sudo kubeadm init --ignore-preflight-errors=all 
+On Master :
+sudo kubeadm init --ignore-preflight-errors=all 
 
 mkdir -p $HOME/.kube 
 
@@ -42,7 +43,7 @@ kubeadm token create --print-join-command
 
 On Worker: 
 
-Use kubeadm join command with token (copy the command from master and paste on worker) 
+ sudo kubeadm join command with token (copy the command from master and paste on worker) 
 
   
 
